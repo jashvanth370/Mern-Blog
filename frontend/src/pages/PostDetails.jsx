@@ -24,16 +24,22 @@ export default function PostDetails(){
     },[])
 
     if(!post){
-        return "loading..";
+        return "loading...";
     }
+
+    const formettedDate = Intl.DateTimeFormat('en-US',{
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    }).format(new Date(post.createdAt))
 
     return <main class="container my-4">
         <div class="row">
             <article class="col-lg-8">
                 <h2 class="blog-post-title"> {post.title}</h2>
-                <p class="blog-post-meta">January 1, 2024 by <a href="#">Author</a></p>
+                <p class="blog-post-meta">{formettedDate} by <a href="#">{post.author}</a></p>
 
-                <img class="mb-3 img-fluid" src="https://via.placeholder.com/300" alt="Author Image" />
+                <img class="mb-3 img-fluid" src={post.image} alt="Author Image" />
                 
                 <div class="blog-post-content">
                     <p>{post.content}</p>
