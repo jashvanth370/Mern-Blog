@@ -14,8 +14,9 @@ function App() {
           <Route path='/' element={<PostList />} />
           <Route path='/posts/details/:id' element={<PostDetails />} />
         </Routes>
-      </Router>
       <Footers />
+      </Router>
+      
     </div>
   );
 }

@@ -53,7 +53,7 @@ router.put('/update/:id', async (req, res) => {
         category.slug = req.body.slug || category.slug;
         category.description = req.body.description || category.description;
         
-        post.updatedAt = Date.now();
+        category.updatedAt = Date.now();
         const updateCategory = await category.save();
         res.json(updateCategory);
     }
@@ -76,5 +76,7 @@ router.delete('/delete/:id',async(req,res) =>{
         res.status(400).json({message: err.message})
     }
 })
+
+
 
 module.exports = router;
