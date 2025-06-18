@@ -1,6 +1,6 @@
 const Post = require('../models/Post');
-const exoress = require('express');
-const router = exoress.Router();
+const express = require('express');
+const router = express.Router();
 
 //Get All Posts
 router.get('/', async (req, res) => {
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
 })
 
 //update the post 
-router.put('/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
         if (!post) {
@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
 })
 
 //Delete a post 
-router.delete('/:id',async(req,res) =>{
+router.delete('/delete/:id',async(req,res) =>{
     try{
         const post = await Post.findById(req.params.id);
         if (!post) {
